@@ -1,8 +1,8 @@
+import { MaterialModule } from './material-module';
 import { MainComponent } from './Layouts/main/main.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PublicComponent } from './Layouts/public/public.component';
@@ -16,7 +16,7 @@ import { PublicComponent } from './Layouts/public/public.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule,
+    MaterialModule,
     RouterModule.forRoot([
       {
         path: '',
