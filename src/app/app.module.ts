@@ -1,11 +1,11 @@
-import { MaterialModule } from './material-module';
+import { PrivateRoutes } from './routes/private-routes.routing';
 import { MainComponent } from './Layouts/main/main.component';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PublicComponent } from './Layouts/public/public.component';
+import { PublicRoutes } from './routes/public-routes.routing';
 
 @NgModule({
   declarations: [
@@ -15,18 +15,16 @@ import { PublicComponent } from './Layouts/public/public.component';
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
     RouterModule.forRoot([
       {
-        path: '',
+        path: 'main-system',
         component: MainComponent,
-        loadChildren: './pages/users/users.module#UsersModule'
+        children: PrivateRoutes
       },
       {
-        path: 'login',
+        path: '',
         component: PublicComponent,
-        loadChildren: './pages/login/login.module#LoginModule'
+        children: PublicRoutes
       },
       {
         path: '**',

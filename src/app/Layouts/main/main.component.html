@@ -1,66 +1,52 @@
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
-  <mat-drawer #drawer [mode]="'push'">
-    <div class="side-bar">
-      <nav class="uk-navbar uk-navbar-container uk-margin bg-sidebar-in">
-        <div class="uk-navbar-left">
-          <a class="uk-navbar-toggle" href="#" (click)="drawer.toggle()">
-            <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">เมนู</span>
-          </a>
-        </div>
-      </nav>
-      <div class="box-manu">
-        <div class="uk-width-1">
-          <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li class="uk-parent">
-              <a href="#">Parent</a>
-              <ul class="uk-nav-sub">
-                <li><a (click)="drawer.toggle()" href="#">Sub item</a></li>
-                <li>
-                  <a href="#">Sub item</a>
-                  <ul>
-                    <li><a href="#">Sub item</a></li>
-                    <li><a href="#">Sub item</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="uk-parent">
-              <a href="#">Parent</a>
-              <ul class="uk-nav-sub">
-                <li><a href="#">Sub item</a></li>
-                <li><a href="#">Sub item</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+<nav class="uk-navbar uk-navbar-container uk-margin bg-sidebar-out uk-box-shadow-small uk-animation-fade">
+  <div class="uk-navbar-left">
+    <a class="uk-navbar-toggle" href="#" uk-toggle="target: #offcanvas-push">
+      <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">เมนู</span>
+    </a>
+    <div class="uk-navbar-item">
+      <form class="uk-search uk-search-default">
+        <a href="" uk-search-icon></a>
+        <input class="uk-search-input" type="search" placeholder="ค้นหา...">
+      </form>
     </div>
-  </mat-drawer>
-  <mat-drawer-content>
+  </div>
+  <div class="uk-navbar-rigth">
+    <ul class="uk-navbar-nav">
+      <!-- <li><a href="#"><span uk-icon="list"></span> <span> แสดงคิวทั้งหมด</span></a></li> -->
+      <li><a [routerLink]="['/login']"><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a></li>
+    </ul>
+  </div>
+</nav>
 
-    <nav class="uk-navbar uk-navbar-container uk-margin bg-sidebar-out uk-box-shadow-small">
-      <div class="uk-navbar-left">
-        <a class="uk-navbar-toggle" href="#" (click)="drawer.toggle()">
-          <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">เมนู</span>
+<div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>
+
+
+
+<div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
+  <div class="uk-offcanvas-bar">
+    <ul class="uk-nav uk-nav-default">
+      <li class="uk-nav-header">ชื่อโครงเจ็ค</li>
+      <li class="uk-nav-divider"></li>
+      <li>
+        <a (click)="OnClose()" [routerLink]="['/main-system/users']" routerLinkActive="active" >
+          <span class="uk-margin-small-right" uk-icon="icon: users"></span>
+          จัดการผูใช้งานระบบ
         </a>
-        <div class="uk-navbar-item">
-          <form class="uk-search uk-search-default">
-            <a href="" uk-search-icon></a>
-            <input class="uk-search-input" type="search" placeholder="ค้นหา...">
-          </form>
-        </div>
-      </div>
-      <div class="uk-navbar-rigth">
-        <ul class="uk-navbar-nav">
-          <!-- <li><a href="#"><span uk-icon="list"></span> <span> แสดงคิวทั้งหมด</span></a></li> -->
-          <li><a href="#"><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="container-fluid">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+      </li>
+      <li>
+        <a  (click)="OnClose()" [routerLink]="['/main-system/settings']" routerLinkActive="active">
+          <span class="uk-margin-small-right" uk-icon="icon: trash"></span>
+          ถังขยะ
+        </a>
+      </li>
+      <li class="uk-nav-divider"></li>
+      <li><a (click)="OnClose()" [routerLink]="['/main-system/trash']" routerLinkActive="active">
+          <span class="uk-margin-small-right" uk-icon="icon: settings"></span>
+          ตั้งค่าระบบ
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
