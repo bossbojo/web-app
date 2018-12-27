@@ -12,13 +12,15 @@
   </div>
   <div class="uk-navbar-rigth">
     <ul class="uk-navbar-nav">
+      <li><a><span uk-icon="user"></span> <span> ชื่อ-สกุล(ผู้ใช้งาน)</span></a></li>
+      <li><a><span uk-icon="bell"></span> <span class="uk-badge">10</span></a></li>
       <!-- <li><a href="#"><span uk-icon="list"></span> <span> แสดงคิวทั้งหมด</span></a></li> -->
       <li><a [routerLink]="['/login']"><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a></li>
     </ul>
   </div>
 </nav>
 
-<div class="container-fluid">
+<div class="my-container">
   <router-outlet></router-outlet>
 </div>
 
@@ -30,21 +32,21 @@
       <li class="uk-nav-header">ชื่อโครงเจ็ค</li>
       <li class="uk-nav-divider"></li>
       <li>
-        <a (click)="OnClose()" [routerLink]="['/main-system/users']" routerLinkActive="active" >
+        <a (click)="OnClose()" [routerLink]="['/main-system/users']" routerLinkActive="active">
           <span class="uk-margin-small-right" uk-icon="icon: users"></span>
-          จัดการผูใช้งานระบบ
+          จัดการผู้ใช้งานระบบ
         </a>
       </li>
       <li>
-        <a  (click)="OnClose()" [routerLink]="['/main-system/settings']" routerLinkActive="active">
+        <a (click)="OnClose()" [routerLink]="['/main-system/trash']" routerLinkActive="active">
           <span class="uk-margin-small-right" uk-icon="icon: trash"></span>
           ถังขยะ
         </a>
       </li>
       <li class="uk-nav-divider"></li>
-      <li><a (click)="OnClose()" [routerLink]="['/main-system/trash']" routerLinkActive="active">
+      <li><a (click)="OnClose()" [routerLink]="['/main-system/settings']" routerLinkActive="active">
           <span class="uk-margin-small-right" uk-icon="icon: settings"></span>
-          ตั้งค่าระบบ
+          ตั้งค่า
         </a>
       </li>
     </ul>
