@@ -1,3 +1,5 @@
+import { ValidationDirective } from './directives/validation.directive';
+import { RequestInterceptor } from './services/request.interceptor';
 import { PrivateRoutes } from './routes/private-routes.routing';
 import { MainComponent } from './Layouts/main/main.component';
 import { RouterModule } from '@angular/router';
@@ -6,12 +8,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { PublicComponent } from './Layouts/public/public.component';
 import { PublicRoutes } from './routes/public-routes.routing';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    PublicComponent
+    PublicComponent,
+    ValidationDirective
   ],
   imports: [
     BrowserModule,
@@ -33,7 +37,13 @@ import { PublicRoutes } from './routes/public-routes.routing';
       }
     ])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

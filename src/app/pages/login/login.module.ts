@@ -1,3 +1,4 @@
+import { ValidationDirective } from './../../directives/validation.directive';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,6 @@ import { LoginComponent } from './login.component';
       { path: '', component: LoginComponent }
     ])
   ],
-  declarations: [LoginComponent]
+  declarations: [LoginComponent,ValidationDirective]
 })
 export class LoginModule { }

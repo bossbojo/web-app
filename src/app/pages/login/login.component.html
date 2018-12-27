@@ -6,13 +6,15 @@
       <div class="uk-margin">
         <div class="uk-inline">
           <span class="uk-form-icon" uk-icon="icon: user"></span>
-          <input formControlName="username" class="uk-input" placeholder="ชื่อผู้ใช้งาน" type="text">
+          <input formControlName="username" class="uk-input" placeholder="ชื่อผู้ใช้งาน" type="text" ng-Validation>
+          <small class="validation-text"></small>
         </div>
       </div>
       <div class="uk-margin">
         <div class="uk-inline">
           <span class="uk-form-icon" uk-icon="icon: lock"></span>
-          <input formControlName="password" class="uk-input" placeholder="รหัสผ่าน" type="text">
+          <input formControlName="password" class="uk-input" placeholder="รหัสผ่าน" type="text" ng-Validation>
+          <small class="validation-text"></small>
         </div>
       </div>
       <button class="uk-button uk-button-primary uk-width-1-1" [routerLink]="['/main-system']"  [disabled]="false"><span uk-icon="sign-in"></span> เข้าสู้ระบบ</button>
