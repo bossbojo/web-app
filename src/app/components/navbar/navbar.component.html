@@ -1,3 +1,21 @@
-<p>
-  navbar works!
-</p>
+<nav class="uk-navbar uk-navbar-container uk-margin bg-sidebar-out uk-box-shadow-small uk-animation-slide-top-small">
+  <div class="uk-navbar-left">
+    <a class="uk-navbar-toggle" href="#" uk-toggle="target: #offcanvas-push">
+      <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">เมนู</span>
+    </a>
+    <div class="uk-navbar-item">
+      <form class="uk-search uk-search-default">
+        <a href="" uk-search-icon></a>
+        <input class="uk-search-input" type="search" placeholder="ค้นหา...">
+      </form>
+    </div>
+  </div>
+  <div class="uk-navbar-rigth">
+    <ul class="uk-navbar-nav">
+      <li><a><span uk-icon="user"></span> <span> ชื่อ-สกุล(ผู้ใช้งาน)</span></a></li>
+      <li><a><span uk-icon="bell"></span> <span class="uk-badge">10</span></a></li>
+      <!-- <li><a href="#"><span uk-icon="list"></span> <span> แสดงคิวทั้งหมด</span></a></li> -->
+      <li><a [routerLink]="['/login']"><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a></li>
+    </ul>
+  </div>
+</nav>

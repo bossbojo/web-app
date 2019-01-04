@@ -4,6 +4,11 @@ export const PublicRoutes: Routes = [
   {
     path: 'login',
     loadChildren: './pages/login/login.module#LoginModule'
+  },
+  {
+    path: '**',
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
 ];
 

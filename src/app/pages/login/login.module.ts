@@ -13,6 +13,6 @@ import { LoginComponent } from './login.component';
       { path: '', component: LoginComponent }
     ])
   ],
-  declarations: [LoginComponent,ValidationDirective]
+  declarations: [LoginComponent, ValidationDirective]
 })
 export class LoginModule { }

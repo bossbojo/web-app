@@ -1,0 +1,43 @@
+<app-filter></app-filter>
+<div class="uk-animation-slide-top-small" *ngIf="Id.length > 0">
+  <a href="" uk-tooltip="บล็อกผู้ใช้งาน" class="uk-margin-small-right"><span uk-icon="ban"></span> (เลือกเเล้ว {{Id.length}} ชื่อผู้ใช้งาน)</a>
+  <a href="" uk-tooltip="ลบผู้ใช้งาน" class="uk-margin-small-right"><span uk-icon="trash"></span> (เลือกเเล้ว {{Id.length}} ชื่อผู้ใช้งาน)</a>
+</div>
+<div class="uk-overflow-auto uk-animation-slide-top-small">
+  <table class="uk-table uk-table-hover uk-table-middle uk-table-divider">
+    <thead>
+      <tr>
+        <th class="uk-width-small">#</th>
+        <th class="uk-text-center">รูปโปรไฟล์</th>
+        <th class="">ชื่อผู้ใช้งาน</th>
+        <th class="">ชื่อ-สกุล</th>
+        <th class="">ที่อยู่</th>
+        <th class="">ตัวเลือก</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Datas of Data">
+        <td class="uk-width-small">
+          <input class="uk-checkbox" id="{{Datas}}" type="checkbox" (change)="OnPickTable($event)">
+          &nbsp;<label style="cursor: pointer;" for="{{Datas}}">000000{{Datas}}</label>
+        </td>
+        <td class="uk-text-center"><img class="uk-preserve-width uk-border-circle" src="assets/icon/profile-icon.png"
+            width="40" alt=""></td>
+        <td class="uk-text-truncate">
+          35 moo 3
+        </td>
+        <td>
+          Paramat Singkon
+        </td>
+        <td class="uk-text-nowrap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</td>
+        <td class="uk-text-nowrap">
+          <a class="uk-margin-small-right" uk-tooltip="แสดงรายละเอียดผู้ใช้งาน"><span uk-icon="info"></span></a>
+          <a class="uk-margin-small-right" uk-tooltip="แก้ไขผู้ใช้งาน"><span uk-icon="file-edit"></span></a>
+          <a class="uk-margin-small-right" uk-tooltip="บล็อกผู้ใช้งาน"><span uk-icon="ban"></span></a>
+          <a class="uk-margin-small-right" uk-tooltip="ลบผู้ใช้งาน"><span uk-icon="trash"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-pagination [(currentPage)]="currentPage" [resultRow]="resultRow" [limitRow]="limitRow" (ChangePage)="onChangePage($event)"></app-pagination>

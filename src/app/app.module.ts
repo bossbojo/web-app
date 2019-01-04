@@ -1,4 +1,3 @@
-import { ValidationDirective } from './directives/validation.directive';
 import { RequestInterceptor } from './services/request.interceptor';
 import { PrivateRoutes } from './routes/private-routes.routing';
 import { MainComponent } from './Layouts/main/main.component';
@@ -9,13 +8,14 @@ import { AppComponent } from './app.component';
 import { PublicComponent } from './Layouts/public/public.component';
 import { PublicRoutes } from './routes/public-routes.routing';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     PublicComponent,
-    ValidationDirective
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

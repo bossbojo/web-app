@@ -1,17 +1,13 @@
 
-  .uk-navbar{
-    background-color: white;
-  }
-  .uk-search-input{
-    width: 250px;
-    font-family: 'Kanit',sans-serif;
-  }
   .uk-offcanvas-bar {
     background-color: white;
     a{
       color: #363636 !important;
       &:hover{
         color: #888888 !important;
+      }
+      &:after{
+        color: #363636 !important;
       }
     }
     .active{

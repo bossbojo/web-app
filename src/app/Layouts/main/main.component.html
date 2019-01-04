@@ -1,36 +1,18 @@
-<nav class="uk-navbar uk-navbar-container uk-margin bg-sidebar-out uk-box-shadow-small uk-animation-slide-top-small">
-  <div class="uk-navbar-left">
-    <a class="uk-navbar-toggle" href="#" uk-toggle="target: #offcanvas-push">
-      <span uk-navbar-toggle-icon></span> <span class="uk-margin-small-left">เมนู</span>
-    </a>
-    <div class="uk-navbar-item">
-      <form class="uk-search uk-search-default">
-        <a href="" uk-search-icon></a>
-        <input class="uk-search-input" type="search" placeholder="ค้นหา...">
-      </form>
-    </div>
-  </div>
-  <div class="uk-navbar-rigth">
-    <ul class="uk-navbar-nav">
-      <li><a><span uk-icon="user"></span> <span> ชื่อ-สกุล(ผู้ใช้งาน)</span></a></li>
-      <li><a><span uk-icon="bell"></span> <span class="uk-badge">10</span></a></li>
-      <!-- <li><a href="#"><span uk-icon="list"></span> <span> แสดงคิวทั้งหมด</span></a></li> -->
-      <li><a [routerLink]="['/login']"><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a></li>
-    </ul>
-  </div>
-</nav>
-
+<app-navbar></app-navbar>
 <div class="my-container">
   <router-outlet></router-outlet>
 </div>
-
-
-
 <div id="offcanvas-push" uk-offcanvas="mode: push; overlay: true">
   <div class="uk-offcanvas-bar">
-    <ul class="uk-nav uk-nav-default">
+    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
       <li class="uk-nav-header">ชื่อโครงเจ็ค</li>
       <li class="uk-nav-divider"></li>
+      <li>
+        <a (click)="OnClose()" [routerLink]="['/main-system/dashboard']" routerLinkActive="active">
+          <span class="uk-margin-small-right" uk-icon="icon: settings"></span>
+          เเผงควบคุม
+        </a>
+      </li>
       <li>
         <a (click)="OnClose()" [routerLink]="['/main-system/users']" routerLinkActive="active">
           <span class="uk-margin-small-right" uk-icon="icon: users"></span>
@@ -45,7 +27,7 @@
       </li>
       <li class="uk-nav-divider"></li>
       <li><a (click)="OnClose()" [routerLink]="['/main-system/settings']" routerLinkActive="active">
-          <span class="uk-margin-small-right" uk-icon="icon: settings"></span>
+          <span class="uk-margin-small-right" uk-icon="icon: cog"></span>
           ตั้งค่า
         </a>
       </li>

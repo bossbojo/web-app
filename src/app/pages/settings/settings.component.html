@@ -3,6 +3,7 @@
   <span> ตั้งค่า</span>
 </h3>
 <ul class="uk-animation-slide-left-small" uk-tab>
-  <li class="uk-active"><a href="#"><span uk-icon="user"></span> โปรไฟล์</a></li>
-  <li><a href="#"><span uk-icon="lock"></span> รหัสผ่าน</a></li>
+  <li  [routerLink]="['/main-system/settings/user-profile']" routerLinkActive="uk-active"><a href="#"><span uk-icon="user"></span> โปรไฟล์</a></li>
+  <li  [routerLink]="['/main-system/settings/user-password']" routerLinkActive="uk-active"><a href="#"><span uk-icon="lock"></span> รหัสผ่าน</a></li>
 </ul>
+<router-outlet></router-outlet>

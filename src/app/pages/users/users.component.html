@@ -3,6 +3,9 @@
   <span> จัดการผู้ใช้งาน</span>
 </h3>
 <ul class="uk-animation-slide-left-small" uk-tab>
-    <li class="uk-active"><a href="#"><span uk-icon="users"></span> รายการผู้ใช้งาน</a></li>
-    <li><a href="#"><span uk-icon="plus-circle"></span> เพิ่มผู้ใช้งาน</a></li>
-  </ul>
+  <li [routerLink]="['/main-system/users/list']" routerLinkActive="uk-active"><a href="#"><span uk-icon="users"></span>
+      รายการผู้ใช้งาน</a></li>
+  <li [routerLink]="['/main-system/users/create']" routerLinkActive="uk-active"><a href="#"><span uk-icon="plus-circle"></span>
+      เพิ่มผู้ใช้งาน</a></li>
+</ul>
+<router-outlet></router-outlet>
