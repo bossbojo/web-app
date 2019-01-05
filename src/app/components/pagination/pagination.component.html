@@ -8,25 +8,19 @@
   </div>
   <ng-container *ngIf="pagination?.length <= 10">
     <ul class="uk-pagination uk-flex-right uk-margin-medium-top" uk-margin>
-      <li><a (click)="onPagePrevious()"><span uk-pagination-previous></span></a></li>
-      <li *ngFor="let page of pagination" [ngClass]="{'uk-active':currentPage == page}"><a (click)="onChangePage(page)">{{page}}</a></li>
-      <li><a (click)="onPageNext()"><span uk-pagination-next></span></a></li>
+      <li (click)="onPagePrevious()"><a><span uk-pagination-previous></span></a></li>
+      <li (click)="onChangePage(page)" *ngFor="let page of pagination" [ngClass]="{'uk-active':currentPage == page}"><a>{{page}}</a></li>
+      <li (click)="onPageNext()"><a><span uk-pagination-next></span></a></li>
     </ul>
   </ng-container>
   <ng-container *ngIf="pagination?.length > 10">
     <ul class="uk-pagination uk-flex-right uk-margin-medium-top" uk-margin>
-      <li><a (click)="onPagePrevious()"><span uk-pagination-previous></span></a></li>
-      <li [ngClass]="{'uk-active':currentPage == pagination[0]}"><a (click)="onChangePage(pagination[0])">{{pagination[0]}}</a></li>
+      <li (click)="onPagePrevious()"><a><span uk-pagination-previous></span></a></li>
+      <li (click)="onChangePage(pagination[0])" [ngClass]="{'uk-active':currentPage == pagination[0]}"><a>{{pagination[0]}}</a></li>
       <li class="uk-disabled"><span>...</span></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li><a href="#">6</a></li>
-      <li class="uk-active"><span>7</span></li>
-      <li><a href="#">8</a></li>
-      <li><a href="#">9</a></li>
-      <li><a href="#">10</a></li>
+      <li (click)="onChangePage(page)" *ngFor="let page of paginationOver" [ngClass]="{'uk-active':currentPage == page}" ><a>{{page}}</a></li>
       <li class="uk-disabled"><span>...</span></li>
-      <li [ngClass]="{'uk-active':currentPage == pagination[pagination?.length-1]}"><a (click)="onChangePage(pagination[pagination?.length-1])">{{pagination[pagination?.length-1]}}</a></li>
+      <li (click)="onChangePage(pagination[pagination?.length-1])" [ngClass]="{'uk-active':currentPage == pagination[pagination?.length-1]}"><a>{{pagination[pagination?.length-1]}}</a></li>
       <li><a (click)="onPageNext()"><span uk-pagination-next></span></a></li>
     </ul>
   </ng-container>

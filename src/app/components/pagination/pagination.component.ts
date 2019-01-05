@@ -22,34 +22,38 @@ export class PaginationComponent implements OnInit, OnChanges {
     for (let i = 1; i <= Math.ceil(this.resultRow / this.limitRow); i++) {
       this.pagination.push(i);
     }
+    this.NormalizationPagination();
   }
   onChangePage(page: number) {
     this.ChangePage.emit(page);
     this.currentPageChange.emit(page);
+    this.NormalizationPagination();
   }
   onPagePrevious() {
     if (this.currentPage === 1) {
       return;
     }
     this.currentPage--;
-    this.ChangePage.emit(this.currentPage);
-    this.currentPageChange.emit(this.currentPage);
+    this.onChangePage(this.currentPage);
   }
   onPageNext() {
     if (this.currentPage === this.pagination[this.pagination.length - 1]) {
       return;
     }
     this.currentPage++;
-    this.ChangePage.emit(this.currentPage);
-    this.currentPageChange.emit(this.currentPage);
+    this.onChangePage(this.currentPage);
   }
   NormalizationPagination() {
     this.paginationOver = this.pagination;
-    if (this.currentPage === 2) {
-      this.paginationOver.splice(this.currentPage, this.currentPage);
-    }
-    if (this.currentPage > this.pagination[this.pagination.length - 1] - 3) {
-      this.paginationOver.splice(this.currentPage, this.currentPage);
+    const pageAll = Math.ceil(this.resultRow / this.limitRow);
+    if (this.currentPage >= 1 && this.currentPage <= 3) {
+      this.paginationOver = this.paginationOver.slice(1, 6);
+    } else if (this.currentPage >= pageAll - 3) {
+      this.paginationOver = this.paginationOver.slice(pageAll - 6, pageAll - 1);
+    } else if (this.currentPage > 3 && this.currentPage < pageAll - 3) {
+      this.paginationOver = this.paginationOver.slice(
+        (this.currentPage - 3) < 1 ? 1 : (this.currentPage - 3), (this.currentPage + 2) >= pageAll ? pageAll - 1 : (this.currentPage + 2)
+      );
     }
   }
 }

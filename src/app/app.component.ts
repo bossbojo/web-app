@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'web-app';
+  support = true;
+  OnWindowResize() {
+    // if (window.innerWidth < 1336) {
+    //   this.support = false;
+    // } else {
+    //   this.support = true;
+    // }
+  }
 }

@@ -9,7 +9,7 @@ export class UserListComponent implements OnInit {
   Id: number[] = [];
   Data: any = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   currentPage = 1;
-  resultRow = 95;
+  resultRow = 105;
   limitRow = 10;
   constructor() { }
 

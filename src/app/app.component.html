@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<div (window:resize)="OnWindowResize()">
+    <ng-container *ngIf="support">
+        <router-outlet></router-outlet>
+    </ng-container>
+    <ng-container *ngIf="!support">
+        Not support this screen size
+    </ng-container>
+</div>

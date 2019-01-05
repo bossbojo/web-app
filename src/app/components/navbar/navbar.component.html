@@ -12,10 +12,36 @@
   </div>
   <div class="uk-navbar-rigth">
     <ul class="uk-navbar-nav">
-      <li><a><span uk-icon="user"></span> <span> ชื่อ-สกุล(ผู้ใช้งาน)</span></a></li>
-      <li><a><span uk-icon="bell"></span> <span class="uk-badge">10</span></a></li>
+      <li>
+        <a><span uk-icon="user"></span> <span> ชื่อ-สกุล (ผู้ใช้งาน)</span></a>
+        <div class="uk-navbar-dropdown" uk-dropdown="mode: click;animation: uk-animation-slide-top-small;pos:bottom-right;">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li [routerLink]="['/main-system/settings/user-profile']"><a><span uk-icon="user"></span> โปรไฟล์</a></li>
+            <li [routerLink]="['/main-system/settings/user-password']"><a><span uk-icon="lock"></span> เปลี่ยนรหัสผ่าน</a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a><span uk-icon="bell"></span> <span class="uk-badge">10</span></a>
+        <div class="uk-navbar-dropdown" uk-dropdown="mode: click;animation: uk-animation-slide-top-small;pos:bottom-right;">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+          </ul>
+        </div>
+      </li>
       <!-- <li><a href="#"><span uk-icon="list"></span> <span> แสดงคิวทั้งหมด</span></a></li> -->
-      <li><a [routerLink]="['/login']"><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a></li>
+      <li>
+        <a><span uk-icon="sign-out"></span> <span class="uk-margin-small-left">ออกจากระบบ</span></a>
+        <div class="uk-navbar-dropdown" uk-dropdown="mode: click;animation: uk-animation-slide-top-small;pos:bottom-right;">
+          <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-text-center">
+              <button [routerLink]="['/login']" class="uk-button uk-button-danger"><span uk-icon="check"></span> ยืนยัน</button>
+            </li>
+          </ul>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
